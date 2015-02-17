@@ -38,33 +38,32 @@ sub evaluate_fitness {
 
     # bonus for program parsing and evaluating
     if ($result) {
-    $fitness += $program_valid;
-    
-    if (0) {
-        # bonus for right answer
-        if ($result == $target) {
-            $fitness += $right_answer;
+        $fitness += $program_valid;
+        
+        if (0) {
+            # bonus for right answer
+            if ($result == $target) {
+                $fitness += $right_answer;
 
-            print "\n\nargs: " . join(" ", Genetic->args) . "\n\n";
-            print "Found answer: " . translate_program($creature) . "\ntarget: $target\n" .
-                "program result: " . $result . "\n";
+                print "\n\nargs: " . join(" ", Genetic->args) . "\n\n";
+                print "Found answer: " . translate_program($creature) . "\ntarget: $target\n" .
+                    "program result: " . $result . "\n";
 
-            unlink "population" if -e 'population';
-            exit;
+                unlink "population" if -e 'population';
+                exit;
+            }
         }
-    }
 
-    # bonus for program length
-#   $fitness += $max_prog_size - (scalar @program);
+        # bonus for program length
+    #   $fitness += $max_prog_size - (scalar @program);
     }
 
     return $fitness;
 }
 
 sub args {
-  my $class = shift;
-
-  return @args;
+    my $class = shift;
+    return @args;
 }
 
 sub get_arg {
