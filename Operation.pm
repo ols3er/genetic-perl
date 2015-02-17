@@ -3,19 +3,19 @@ use Carp;
 package Operation;
 
 sub new {
-  my ($class, %opts) = @_;
+    my ($class, %opts) = @_;
 
-  my $randseed = delete $opts{randseed} || rand() * 1000000000000000;
+    my $randseed = delete $opts{randseed} || rand() * 1000000000000000;
 
-  Carp::croak "Invalid arguments passed to Operation::new" if keys %opts;
+    Carp::croak "Invalid arguments passed to Operation::new" if keys %opts;
 
-  my $self = {
+    my $self = {
       randseed => $randseed,
-  };
+    };
 
-  bless $self, $class;
+    bless $self, $class;
 
-  return $self;
+    return $self;
 }
 
 sub as_string {

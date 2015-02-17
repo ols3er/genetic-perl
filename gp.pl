@@ -389,8 +389,8 @@ sub seed_population {
 
             my $opcode_count = 0;
             for(0..max($min_prog_size, int(rand($max_prog_size)))) {
-            $last_opcode = Operation->next_valid_opcode($last_opcode);
-            push @program, $last_opcode;
+                $last_opcode = Operation->next_valid_opcode($last_opcode);
+                push @program, $last_opcode;
             }
 
             $creature->set_program(\@program);
